@@ -6,11 +6,16 @@
 #if($endangeredAnimal.getSightings().size() == 0)
   <p>To report a sighting, please visit the <a href="/">home page</a>.</p>
 #else
-  #foreach($sighting in $endangeredAnimal.getSightings())
-    Location: <strong>$sighting.getLocation()</strong>
-    Health: $endangeredAnimal.getHealth()
-    Age: $endangeredAnimal.getAge()
-    Reported by: $sighting.getRangerName()
-    ID: $sighting.getId()
-  #end
+  <ol>
+    #foreach($sighting in $endangeredAnimal.getSightings())
+      <li>
+        <p>Location: <strong>$sighting.getLocation()</strong></p>
+        <p>Health: $endangeredAnimal.getHealth()</p>
+        <p>Age: $endangeredAnimal.getAge()</p>
+        <p>Reported by: $sighting.getRangerName()</p>
+        <p>ID: $sighting.getId()</p>
+      </li>
+      <br>
+    #end
+  </ol>
 #end
