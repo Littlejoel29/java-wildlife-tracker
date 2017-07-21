@@ -1,7 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
-archivesBaseName = "java_wilderness-tracker"
+archivesBaseName = "java-wildlife-tracker" 
 version = '1.0'
 mainClassName = "App"
 

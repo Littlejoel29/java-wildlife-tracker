@@ -1,3 +1,4 @@
+<!-- required tags added to form input fields to prevent null entires to database  -->
 <h1>Report a Wildlife Sighting</h1>
 
 <h3><a href="/animal/new">Add Animal to System</a></h3>
@@ -14,9 +15,9 @@
     </select>
 
     <label>Location</label>
-    <input type="text" name="latLong">
+    <input type="text" name="latLong" required>
     <label>Your Name</label>
-    <input type="text" name="rangerName">
+    <input type="text" name="rangerName" required>
     <button type="submit">Submit Report</button>
   #end
 </form>
@@ -34,9 +35,9 @@
     </select>
 
     <label>Location</label>
-    <input type="text" name="latLong">
+    <input type="text" name="latLong" required>
     <label>Your Name</label>
-    <input type="text" name="rangerName">
+    <input type="text" name="rangerName" required>
     <button type="submit">Submit Report</button>
   #end
 </form>
