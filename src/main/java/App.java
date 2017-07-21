@@ -80,6 +80,16 @@ public class App {
         return null;
       });
 
+    post("/animals/:animal_id", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Animal animal = Animal.find(Integer.parseInt(request.params("id")));
+      String name = request.queryParams("name");
+      animal.updateName(name);
+      String url = String.format("/animal/%d", animal.getId());
+      model.put("template", "templates/success.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
     get("/animal/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Animal animal = Animal.find(Integer.parseInt(request.params("id")));
