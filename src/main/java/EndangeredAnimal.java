@@ -92,6 +92,16 @@ public class EndangeredAnimal {
     }
   }
 
+  public void updateName(String name) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE endgangered_animals SET name=:name WHERE id=:id;";
+      con.createQuery(sql)
+        .addParameter("id", id)
+        .addParameter("name", name)
+        .executeUpdate();
+    }
+  }
+  
   public List<Sighting> getSightings() {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM sightings WHERE animal_id=:id;";
