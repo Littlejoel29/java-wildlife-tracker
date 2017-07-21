@@ -14,7 +14,7 @@ public class App {
     get("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("animals", Animal.all());
-      model.put("endangeredAnimals", EndangeredAnimal.all());
+      model.put("endangeredAnimals", EndangeredAnimal.allEndangered());
       model.put("sightings", Sighting.all());
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
@@ -30,9 +30,9 @@ public class App {
       Sighting sighting = new Sighting(animalIdSelected, latLong, rangerName, age, health);
       sighting.save();
       model.put("sighting", sighting);
-      model.put("animals", EndangeredAnimal.all());
-      String animal = EndangeredAnimal.find(animalIdSelected).getName();
-      model.put("animal", animal);
+      model.put("animals", EndangeredAnimal.allEndangered());
+      String endangered_animal = EndangeredAnimal.find(animalIdSelected).getName();
+      model.put("endangered_animal", endangered_animal);
       model.put("template", "templates/success.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -57,7 +57,7 @@ public class App {
     get("/animal/new", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("animals", Animal.all());
-      model.put("endangeredAnimals", EndangeredAnimal.all());
+      model.put("endangeredAnimals", EndangeredAnimal.allEndangered());
       model.put("template", "templates/animal-form.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -72,13 +72,13 @@ public class App {
         EndangeredAnimal endangeredAnimal = new EndangeredAnimal(name, health, age);
         endangeredAnimal.save();
         model.put("animals", Animal.all());
-        model.put("endangeredAnimals", EndangeredAnimal.all());
+        model.put("endangeredAnimals", EndangeredAnimal.allEndangered());
       } else {
         String name = request.queryParams("name");
         Animal animal = new Animal(name);
         animal.save();
         model.put("animals", Animal.all());
-        model.put("endangeredAnimals", EndangeredAnimal.all());
+        model.put("endangeredAnimals", EndangeredAnimal.allEndangered());
       }
       response.redirect("/");
         return null;
