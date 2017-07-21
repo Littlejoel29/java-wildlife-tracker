@@ -22,11 +22,11 @@ public class App {
 
     post("/endangered_sighting", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      String health = request.queryParams("health");
-      String age = request.queryParams("age");
       String rangerName = request.queryParams("rangerName");
       int animalIdSelected = Integer.parseInt(request.queryParams("endangeredAnimalSelected"));
       String latLong = request.queryParams("latLong");
+      String health = request.queryParams("health");
+      String age = request.queryParams("age");
       Sighting sighting = new Sighting(animalIdSelected, latLong, rangerName, age, health);
       sighting.save();
       model.put("sighting", sighting);
@@ -39,10 +39,12 @@ public class App {
 
     post("/sighting", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
+      String health = request.queryParams("health");
+      String age = request.queryParams("age");
       String rangerName = request.queryParams("rangerName");
       int animalIdSelected = Integer.parseInt(request.queryParams("animalSelected"));
       String latLong = request.queryParams("latLong");
-      Sighting sighting = new Sighting(animalIdSelected, latLong, rangerName);
+      Sighting sighting = new Sighting(animalIdSelected, latLong, rangerName, age, health);
       sighting.save();
       model.put("sighting", sighting);
       model.put("animals", Animal.all());
