@@ -3,12 +3,6 @@
 <h1>$animal.getName()</h1>
 <h3>ID: $animal.getId()</h3>
 
-<form action="/animals/$animal.getId()" method="post">
-  <label for="name">Animal Name</label>
-  <input id="name" name="name" type="text">
-    <button type="submit" class="btn btn-info">Update Animal Name</button>
-</form>
-
 #if($animal.getSightings().size() == 0)
   <p>To report a sighting, please visit the <a href="/">home page</a>.</p>
 #else

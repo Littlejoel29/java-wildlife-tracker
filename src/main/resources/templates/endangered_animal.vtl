@@ -3,13 +3,6 @@
 <h1>$endangeredAnimal.getName()</h1>
 <h3>ID: $endangeredAnimal.getId()</h3>
 
-<form action="/endangered_animals/$endangered_animals.getId()" method="post">
-  <label for="name">Animal Name</label>
-  <input id="name" name="name" type="text">
-    <button type="submit" class="btn btn-info">Update Animal Name</button>
-</form>
-
-
 #if($endangeredAnimal.getSightings().size() == 0)
   <p>To report a sighting, please visit the <a href="/">home page</a>.</p>
 #else

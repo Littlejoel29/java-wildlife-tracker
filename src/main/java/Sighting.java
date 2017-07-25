@@ -7,17 +7,15 @@ public class Sighting {
   private int animal_id;
   private String location;
   private String ranger_name;
-  private String age;
-  private String health;
+
   private int id;
 
-  public Sighting(int animal_id, String location, String ranger_name, String age, String health) {
+  public Sighting(int animal_id, String location, String ranger_name) {
     this.animal_id = animal_id;
     this.location = location;
     this.ranger_name = ranger_name;
     this.id = id;
-    this.age = age;
-    this.health = health;
+
   }
 
   public int getId() {
@@ -36,14 +34,6 @@ public class Sighting {
     return ranger_name;
   }
 
-  public String getAge() {
-    return age;
-  }
-
-  public String getHealth() {
-    return health;
-  }
-
   @Override
   public boolean equals(Object otherSighting) {
     if(!(otherSighting instanceof Sighting)) {
@@ -56,13 +46,11 @@ public class Sighting {
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO sightings (animal_id, location, ranger_name, age, health) VALUES (:animal_id, :location, :ranger_name, :age, :health);";
+      String sql = "INSERT INTO sightings (animal_id, location, ranger_name) VALUES (:animal_id, :location, :ranger_name);";
       this.id = (int) con.createQuery(sql, true)
         .addParameter("animal_id", this.animal_id)
         .addParameter("location", this.location)
         .addParameter("ranger_name", this.ranger_name)
-        .addParameter("age", this.age)
-        .addParameter("health", this.health)
         .throwOnMappingFailure(false)
         .executeUpdate()
         .getKey();
