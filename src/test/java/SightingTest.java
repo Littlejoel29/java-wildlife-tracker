@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.text.DateFormat;
 import java.util.Date;
+import java.sql.Timestamp;
+import java.sql.*;
 
 public class SightingTest {
 
@@ -27,6 +29,14 @@ public class SightingTest {
     Sighting testSighting = new Sighting(testAnimal.getId(), "45.472428, -121.946466", "Ranger Avery");
     Sighting anotherSighting = new Sighting(testAnimal.getId(), "45.472428, -121.946466", "Ranger Avery");
     assertTrue(testSighting.equals(anotherSighting));
+  }
+
+  @Test
+  public void save_recordsTimeOfLastSightingInDatabase_True() {
+    Animal testAnimal = new Animal("Deer");
+    testAnimal.save();
+    Sighting testSighting = new Sighting(testAnimal.getId(), "45.472428, -121.946466", "Ranger Avery");
+    assertEqulas(rightNow.getDay(), testSighting.getLastSeen());
   }
 
   @Test
@@ -64,6 +74,7 @@ public class SightingTest {
     secondTestSighting.save();
     assertEquals(Sighting.find(secondTestSighting.getId()), secondTestSighting);
   }
+
 
   @Test
   public void find_returnsNullWhenNoAnimalFound_null() {

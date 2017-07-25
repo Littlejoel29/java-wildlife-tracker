@@ -2,18 +2,21 @@ import org.sql2o.*;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.sql.Timestamp;
 
 public class Sighting {
   private int animal_id;
   private String location;
   private String ranger_name;
+  private Timestamp lastSeen;
 
   private int id;
 
-  public Sighting(int animal_id, String location, String ranger_name) {
+  public Sighting(int animal_id, String location, String ranger_name, Timestamp lastSeen) {
     this.animal_id = animal_id;
     this.location = location;
     this.ranger_name = ranger_name;
+    this.lastSeen = lastSeen;
     this.id = id;
 
   }
@@ -32,6 +35,10 @@ public class Sighting {
 
   public String getRangerName() {
     return ranger_name;
+  }
+
+  public Timestamp getLastSeen() {
+    return lastSeen;
   }
 
   @Override

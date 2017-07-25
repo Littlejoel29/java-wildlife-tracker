@@ -40,7 +40,8 @@ public class App {
       String rangerName = request.queryParams("rangerName");
       int animalIdSelected = Integer.parseInt(request.queryParams("animalSelected"));
       String latLong = request.queryParams("latLong");
-      Sighting sighting = new Sighting(animalIdSelected, latLong, rangerName);
+      Timestamp lastSeen = request.queryParams()
+      Sighting sighting = new Sighting(animalIdSelected, latLong, rangerName, lastSeen);
       sighting.save();
       model.put("sighting", sighting);
       model.put("animals", Animal.all());
