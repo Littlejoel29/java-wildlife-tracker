@@ -12,11 +12,10 @@ public class Sighting {
 
   private int id;
 
-  public Sighting(int animal_id, String location, String ranger_name, Timestamp lastSeen) {
+  public Sighting(int animal_id, String location, String ranger_name) {
     this.animal_id = animal_id;
     this.location = location;
     this.ranger_name = ranger_name;
-    this.lastSeen = lastSeen;
     this.id = id;
 
   }
