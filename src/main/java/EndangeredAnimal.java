@@ -1,17 +1,17 @@
 import org.sql2o.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Arrays;
 
 public class EndangeredAnimal extends Animal {
-  public String name;
-  public int id;
-  public boolean endangered;
+  // public int id;
+  public static final boolean endangered = true;
   private String health;
   private String age;
 
   public EndangeredAnimal(String name, String health, String age) {
     super(name);
-    this.id = id;
+    // super(id);
     this.health = health;
     this.age = age;
   }
@@ -27,7 +27,7 @@ public class EndangeredAnimal extends Animal {
   // public String getName() {
   //   return name;
   // }
-  //
+
   // public int getId() {
   //   return id;
   // }
@@ -72,35 +72,35 @@ public class EndangeredAnimal extends Animal {
     }
   }
 
-  public void updateHealth(String health) {
-    try(Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE endangered_animals SET health=:health WHERE id=:id;";
-      con.createQuery(sql)
-        .addParameter("id", id)
-        .addParameter("health", health)
-        .executeUpdate();
-    }
-  }
-
-  public void updateAge(String age) {
-    try(Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE endangered_animals SET age=:age WHERE id=:id;";
-      con.createQuery(sql)
-        .addParameter("age", age)
-        .addParameter("id", id)
-        .executeUpdate();
-    }
-  }
-
-  public void updateName(String name) {
-    try(Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE endgangered_animals SET name=:name WHERE id=:id;";
-      con.createQuery(sql)
-        .addParameter("id", id)
-        .addParameter("name", name)
-        .executeUpdate();
-    }
-  }
+  // public void updateHealth(String health) {
+  //   try(Connection con = DB.sql2o.open()) {
+  //     String sql = "UPDATE endangered_animals SET health=:health WHERE id=:id;";
+  //     con.createQuery(sql)
+  //       .addParameter("id", id)
+  //       .addParameter("health", health)
+  //       .executeUpdate();
+  //   }
+  // }
+  //
+  // public void updateAge(String age) {
+  //   try(Connection con = DB.sql2o.open()) {
+  //     String sql = "UPDATE endangered_animals SET age=:age WHERE id=:id;";
+  //     con.createQuery(sql)
+  //       .addParameter("age", age)
+  //       .addParameter("id", id)
+  //       .executeUpdate();
+  //   }
+  // }
+  //
+  // public void updateName(String name) {
+  //   try(Connection con = DB.sql2o.open()) {
+  //     String sql = "UPDATE endgangered_animals SET name=:name WHERE id=:id;";
+  //     con.createQuery(sql)
+  //       .addParameter("id", id)
+  //       .addParameter("name", name)
+  //       .executeUpdate();
+  //   }
+  // }
 
   public List<Sighting> getSightings() {
     try(Connection con = DB.sql2o.open()) {

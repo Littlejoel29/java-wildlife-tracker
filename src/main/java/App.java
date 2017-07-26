@@ -7,6 +7,7 @@ import spark.template.velocity.VelocityTemplateEngine;
 import static spark.Spark.*;
 
 public class App {
+
   public static void main(String[] args) {
     staticFileLocation("/public");
     String layout = "templates/layout.vtl";
@@ -96,25 +97,6 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    // post("/animals/:id", (request, response) -> {
-    //   Map<String, Object> model = new HashMap<String, Object>();
-    //   Animal animal = Animal.find(Integer.parseInt(request.params("id")));
-    //   String name = request.queryParams("name");
-    //   animal.updateName(name);
-    //   String url = String.format("/animals/%d", animal.getId());
-    //   model.put("template", "templates/success-update.vtl");
-    //   return new ModelAndView(model, layout);
-    // }, new VelocityTemplateEngine());
-
-    // post("/endangered_animal/:id", (request, response) -> {
-    //   Map<String, Object> model = new HashMap<String, Object>();
-    //   EndangeredAnimal endangeredAnimal = EndangeredAnimal.find(Integer.parseInt(request.params("id")));
-    //   String name = request.queryParams("name");
-    //   endangeredAnimal.updateName(name);
-    //   String url = String.format("/endangered_animal/%d", endangeredAnimal.getId());
-    //   model.put("template", "templates/success-update.vtl");
-    //   return new ModelAndView(model, layout);
-    // }, new VelocityTemplateEngine());
 
     get("/error", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
