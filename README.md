@@ -26,7 +26,5 @@ Copyright (c) 2017 **_MIT License_**
 * 1. Added "required" inline html tags to all text form entry fields to prevent null entries to the database.
 * 2. Corrected build.gradle archivebasename to java-wildlife-tracker.
 * 3. Change formatting in animal.vtl and endangeredanimal.vtl to enhance readability  of each animal sighting.
-* 4. Added updateName routes and methods for endangered and non-endangered animals.
-* 5. Added ability to update animal current health and age when reporting a sighting.
-* 6. Updated the save method in sighting.java to allow for updated age and health of endangered animals.
-* 7. Updated the all method in endangeredanimal.java to troubleshoot all method conflict with animal class.
+* 4. Updated the all method in endangeredanimal.java to troubleshoot all method conflict with animal class.
+* 5. Added ability for date/time of each sighting to be recorded to the database and shown on the list of sightings.

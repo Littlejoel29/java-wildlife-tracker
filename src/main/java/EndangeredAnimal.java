@@ -2,7 +2,7 @@ import org.sql2o.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EndangeredAnimal {
+public class EndangeredAnimal extends Animal {
   public String name;
   public int id;
   public boolean endangered;
@@ -10,7 +10,7 @@ public class EndangeredAnimal {
   private String age;
 
   public EndangeredAnimal(String name, String health, String age) {
-    this.name = name;
+    super(name);
     this.id = id;
     this.health = health;
     this.age = age;
@@ -24,13 +24,13 @@ public class EndangeredAnimal {
     return age;
   }
 
-  public String getName() {
-    return name;
-  }
-
-  public int getId() {
-    return id;
-  }
+  // public String getName() {
+  //   return name;
+  // }
+  //
+  // public int getId() {
+  //   return id;
+  // }
 
   @Override
   public boolean equals(Object otherEndangeredAnimal) {

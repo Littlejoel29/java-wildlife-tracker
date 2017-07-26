@@ -1,3 +1,5 @@
+// check method names against test names and assertions.
+
 import org.junit.*;
 import static org.junit.Assert.*;
 import org.sql2o.*;

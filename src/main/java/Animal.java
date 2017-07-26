@@ -57,15 +57,16 @@ public class Animal {
     }
   }
 
-  public void updateName(String name) {
-    try(Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE animals SET name=:name WHERE id=:id;";
-      con.createQuery(sql)
-        .addParameter("id", id)
-        .addParameter("name", name)
-        .executeUpdate();
-    }
-  }
+    // for possible future use, but not currently needed
+  // public void updateName(String name) {
+  //   try(Connection con = DB.sql2o.open()) {
+  //     String sql = "UPDATE animals SET name=:name WHERE id=:id;";
+  //     con.createQuery(sql)
+  //       .addParameter("id", id)
+  //       .addParameter("name", name)
+  //       .executeUpdate();
+  //   }
+  // }
 
   public void delete() {
     try(Connection con = DB.sql2o.open()) {
